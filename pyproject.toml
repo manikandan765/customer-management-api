@@ -1,0 +1,14 @@
+[project]
+name = "customer-management-api"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "sqlalchemy",
+    "alembic",
+    "psycopg2-binary",
+    "pydantic",
+    "python-dotenv",
+    "email-validator",
+]

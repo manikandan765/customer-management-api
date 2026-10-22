@@ -5,11 +5,14 @@ from sqlalchemy.exc import IntegrityError
 from .database import engine, get_db, Base
 from . import models, schemas, dependencies
 
+from .webhooks import router as webhooks_router
+
 # Create tables (fallback, though Alembic is the primary method)
 Base.metadata.create_all(bind=engine)
 
 # THIS IS THE LINE UVICORN IS LOOKING FOR:
 app = FastAPI(title="Customer Management API")
+app.include_router(webhooks_router)
 
 # --- Task 1: Health Check ---
 @app.get("/health")
